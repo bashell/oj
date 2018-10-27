@@ -17,7 +17,7 @@ int solve() {
 
 int main()
 {
-    //freopen("in.txt", "r", stdin);
+    freopen("in.txt", "r", stdin);
     int n;
     scanf("%d", &n);
     getchar();
@@ -27,4 +27,3 @@ int main()
     }
     return 0;
 }
-
