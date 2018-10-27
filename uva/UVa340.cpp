@@ -17,14 +17,13 @@ void solve() {
     for(int i = 0; i < N; ++i) {
         if(code[i] == guess[i]) {
             ++x;
-        } else {
-            ++hash_code[code[i]-1];
-            ++hash_guess[guess[i]-1];
-        }
+        } 
+        ++hash_code[code[i]-1];
+        ++hash_guess[guess[i]-1];
     }
     for(int i = 0; i < 9; ++i)
         y += min(hash_code[i], hash_guess[i]);
-    printf("    (%d,%d)\n", x, y);
+    printf("    (%d,%d)\n", x, y-x);
 }
 
 int main()
@@ -44,4 +43,3 @@ int main()
     }
     return 0;
 }
-
