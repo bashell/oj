@@ -12,21 +12,20 @@ void init() {
     bool found = false;
     int num = 0;
     for(char *tmp = arr; *tmp; ++tmp) {
-        if(isalpha(*tmp)) {  // new character
-            if(found) {
-                if(0 == num) cmap[ch] += 1;
+        if(isalpha(*tmp)) {  // character
+            if(found) {  // 发现新character, 结算前一个character
+                if(num == 0) cmap[ch] += 1;
                 else cmap[ch] += num;
                 num = 0;
                 found = false;
             }
             ch = *tmp;
             found = true;
-            continue;
         } else {  // digit
             num = num*10 + (*tmp - '0');
         }
     }
-    if(found) {
+    if(found) {  // 处理最后一个character
         if(num == 0) cmap[ch] += 1;
         else cmap[ch] += num;
     }
@@ -49,4 +48,3 @@ int main()
     }
     return 0;
 }
-
